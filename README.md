@@ -1,1 +1,4 @@
 # Leetcode
+
+## License
+[MIT](./LICENSE)
