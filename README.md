@@ -1,4 +1,7 @@
 # Leetcode
 
-## License
+Leetcode exercises for programming skills.
+
+**License**
+
 [MIT](./LICENSE)
