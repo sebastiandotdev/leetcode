@@ -2,6 +2,7 @@ const std = @import("std");
 const debug = @import("std").debug;
 
 pub fn main() void {
+    // Here we will write new things learned from Zig with basic examples
     debug.print("Hello world\n", .{});
 
     // Integers
