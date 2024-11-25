@@ -2,6 +2,14 @@ const std = @import("std");
 const debug = @import("std").debug;
 const mem = @import("std").mem;
 
+fn foo() void {
+    var y: i32 = 10;
+
+    y += 1;
+
+    debug.print("{}\n", .{y});
+}
+
 pub fn main() void {
     // Here we will write new things learned from Zig with basic examples
     debug.print("Hello world\n", .{});
@@ -84,4 +92,12 @@ pub fn main() void {
     debug.print("{c}\n", .{bytes[1]}); // para imprimir el caracter
     debug.print("{c}\n", .{bytes[5]}); // para imprimir decimales
     debug.print("{}\n", .{mem.eql(u8, "hello", "h\x65llo")});
+
+    foo();
+
+    var x: i32 = undefined;
+
+    x = 10;
+
+    debug.print("{}\n", .{x});
 }
