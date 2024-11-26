@@ -101,3 +101,28 @@ pub fn main() void {
 
     debug.print("{}\n", .{x});
 }
+
+fn addOne(num: i32) i32 {
+    return num + 1;
+}
+
+// Dos forma de hacer pruebas
+
+test "Expect addOne adds one to 41" {
+    try std.testing.expect(addOne(41) == 42);
+}
+
+// Example test failed
+// test "expect this to fail" {
+//     try std.testing.expect(false);
+// }
+
+test "Skipped test" {
+    return error.SkipZigTest;
+}
+
+test addOne {
+    // A test name can also be written using an identifier.
+    // This is a doctest, and serves as documentation for `addOne`.
+    try std.testing.expect(addOne(41) == 42);
+}
