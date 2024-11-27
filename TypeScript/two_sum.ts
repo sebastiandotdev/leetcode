@@ -20,4 +20,17 @@
 // ```
 // =============================================================================
 
-function two_sum(nums: number[], target: number) {}
+export function two_sum(nums: number[], target: number) {
+    const first_num = nums[0];
+    const sum = [];
+
+    for (let index = 0; index < nums.length; index++) {
+        const operation = first_num + nums[index];
+        if (operation === target) {
+            sum.push(nums.indexOf(first_num), nums.indexOf(nums[index]));
+            break;
+        }
+    }
+
+    return sum;
+}
