@@ -56,9 +56,6 @@ Mkfile.old
 dkms.conf
 
 ### Deno ###
-/.idea/
-/.vscode/
-
 /node_modules
 
 .env
