@@ -20,17 +20,25 @@
 // ```
 // =============================================================================
 
-export function two_sum(nums: number[], target: number) {
-    const first_num = nums[0];
-    const sum = [];
+export function twoSum(nums: number[], target: number) {
+    const sum: number[] = [];
+    const firstNum = nums[0];
+    const clonedNums = nums.slice(1);
 
-    for (let index = 0; index < nums.length; index++) {
-        const operation = first_num + nums[index];
-        if (operation === target) {
-            sum.push(nums.indexOf(first_num), nums.indexOf(nums[index]));
+    for (let index = 0; index <= clonedNums.length; index++) {
+        const numToSum = clonedNums[0];
+
+        if (firstNum + numToSum === target) {
+            sum.push(nums.indexOf(firstNum), clonedNums.indexOf(numToSum));
             break;
         }
     }
 
     return sum;
 }
+
+console.log(
+    // twoSum([2, 11, 7, 15], 9),
+    twoSum([3, 2, 4], 6),
+    // twoSum([3, 3], 6),
+);
