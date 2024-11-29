@@ -1,6 +1,5 @@
-rm -rf ./C/main && clang ./C/main.c -o ./C/main
+rm -rf ./main && clang ./main.c -o ./main
 
 echo "Compiled C code ✅";
 
-./C/main
-
+./main
