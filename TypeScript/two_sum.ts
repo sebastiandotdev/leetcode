@@ -21,24 +21,18 @@
 // =============================================================================
 
 export function twoSum(nums: number[], target: number) {
-    const sum: number[] = [];
-    const firstNum = nums[0];
-    const clonedNums = nums.slice(1);
+    const map = new Map(); // new Map { }
 
-    for (let index = 0; index <= clonedNums.length; index++) {
-        const numToSum = clonedNums[0];
+    for (let i = 0; i < nums.length; i++) { // 1
+        const num = nums[i]; // numero 2
+        const value = target - num; // 7,  -2
 
-        if (firstNum + numToSum === target) {
-            sum.push(nums.indexOf(firstNum), clonedNums.indexOf(numToSum));
-            break;
+        if (map.has(value)) {
+            return [map.get(value), i]; // NO SE COMPLE EN EL PRIMER CICLO
         }
+
+        map.set(num, i);
     }
 
-    return sum;
+    return map;
 }
-
-console.log(
-    // twoSum([2, 11, 7, 15], 9),
-    twoSum([3, 2, 4], 6),
-    // twoSum([3, 3], 6),
-);
