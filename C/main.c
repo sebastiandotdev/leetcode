@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 // Constantes
-#define PI = 3.14;
-#define NOT_CHANGE = 'SOLID';
+#define NOT_CHANGE 'SOLID'
+#define PI 3.14
 
 int main() {
   // Here we will write new things learned from C with basic examples
@@ -58,6 +58,23 @@ int main() {
     printf("Negative true\n");
   }
 
+  int sex = 1;
+
+  // Switch case
+  switch (sex) {
+    case 0:
+      printf("Eres mujer\n");
+      break;
+
+    case 1:
+      printf("Eres hombre\n");
+      break;
+
+    default:
+      printf("Otro\n");
+      break;
+  }
+
   // Punteros (Soon...)
   int num = 12;
 
@@ -68,6 +85,36 @@ int main() {
   printf("Posición de mémoria: %p\n", &puntero);
   printf("El número original: %d\n", num);
   printf("El número modificado por puntero: %d\n", *puntero);
+
+  // Calculate bodsy mass
+  float weight = 0;
+  float height = 0;
+
+  printf("Write your weight (KG): ");
+  scanf("%f", &weight);
+
+  printf("\n");
+
+  printf("Write your height (M): ");
+  scanf("%f", &height);
+
+  if (!weight || !height) {
+    printf("Not calculate a value 0\n");
+    return 1;
+  }
+
+  float imc = weight / (height * height);
+  printf("\nSu IMC es: %.2f\n", imc);
+
+  if (imc < 18.5) {
+    printf("Bajo peso\n");
+  } else if (imc >= 18.5 && imc < 25) {
+    printf("Peso normal\n");
+  } else if (imc >= 25 && imc < 30) {
+    printf("Sobrepeso\n");
+  } else {
+    printf("Obesidad\n");
+  }
 
   return 0;
 }
