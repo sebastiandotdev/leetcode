@@ -5,6 +5,8 @@
 #define NOT_CHANGE 'SOLID'
 #define PI 3.14
 
+void great(int num) { printf("Hi %d\n", num); }
+
 int main() {
   // Here we will write new things learned from C with basic examples
   // Caracteres de modificación
@@ -116,5 +118,10 @@ int main() {
     printf("Obesidad\n");
   }
 
+  for (int i = 0; i < 10; i++) {
+    printf("%d\n", i);
+  }
+
+  great(10);
   return 0;
 }
