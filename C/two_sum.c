@@ -24,6 +24,9 @@
 // ```
 // =============================================================================
 
+// TODO:
+// 1. Debe retornar el arreglo
+// 2. Debe no recibir el tamaño del arreglo
 void two_sum(int nums[], int size, int target) {
   int result[] = {};
   int sum = 0;
