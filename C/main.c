@@ -1,11 +1,108 @@
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 // Constantes
 #define NOT_CHANGE 'SOLID'
 #define PI 3.14
 
 void great(int num) { printf("Hi %d\n", num); }
+
+void change_value(char *letter) { *letter = 'A'; }
+// malloc y free
+// malloc en una funcion de C que se encargar de asginar memoria dinamica
+// free se encarga de liberar esa memoria usada
+
+void exchanging_values_with_pointers() {
+  char *a = malloc(sizeof(char));
+  char *b = malloc(sizeof(char));
+
+  *a = 'A';
+  *b = 'B';
+
+  char cloned_a = *a;  // viejo de
+
+  *a = *b;
+  *b = cloned_a;
+
+  printf("El nuevo valor de a: %c\n", *a);  // ASCII
+  printf("El nuevo valor de b: %c\n", *b);
+
+  free(a);
+  free(b);
+}
+
+int pointers_class() {
+  // Declaración de punteros
+  int *puntero;
+
+  // Ejemplo de uso
+  // *: Hace referencia al valor de un puntero
+  // &: Es para acceder al espacio en memoria de la variable
+  int valor = 10;
+  int *nuevo_puntero = &valor;  // x0008
+
+  // **: Es para apuntar a un puntero de puntero
+  int **puntero_a_puntero = &nuevo_puntero;
+
+  // imprimir direccón de memoria de un puntero
+  printf("%p\n", nuevo_puntero);
+
+  // pasar datos por referencia a una función
+  char l;
+
+  l = 'B';
+
+  change_value(&l);  // ya no crea una copia modifica directamente el espacio en
+                     // donde se encuetra L
+
+  printf("%c\n", l);  // A
+
+  // manipulación de memoria dinamica y liberación
+  char *x = malloc(sizeof(char));  // asigacion de memoria: 1 BIT
+
+  if (x == NULL) {
+    fprintf(stderr, "Error: Espacio de memoria insifuciente\n");
+    return (1);
+  }
+
+  change_value(x);  // cuando ya se define el puntero antes de pasar como
+                    // argumento ya no es necesario pasarle la dirección de
+                    // memoria por que ya viene con este.
+
+  printf("Nuevo valor de letter: %c\n", *x);
+
+  free(x);
+
+  char str[] = "Hola Mundo";
+
+  return (0);
+}
+
+int sum_use_pointer(int *first_number, int *second_number) {
+  return *first_number + *second_number;
+}
+
+int example_use(int first_number_value, int second_number_value) {
+  int *first_number = malloc(sizeof(int));
+  int *second_number = malloc(sizeof(int));
+
+  *first_number = first_number_value;
+  *second_number = second_number_value;
+
+  if (first_number == NULL || second_number == NULL) {
+    fprintf(stderr, "Error: Espacio de memoria insifuciente\n");
+    return (1);
+  }
+
+  int sum = sum_use_pointer(first_number, second_number);
+
+  printf("%d\n", sum);
+
+  free(first_number);
+  free(second_number);
+  return (0);
+}
 
 int main() {
   // Here we will write new things learned from C with basic examples
@@ -123,5 +220,10 @@ int main() {
   }
 
   great(10);
+
+  // pointers
+  pointers_class();
+  example_use(10, 50);
+  exchanging_values_with_pointers();
   return 0;
 }
