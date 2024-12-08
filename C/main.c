@@ -35,6 +35,27 @@ void exchanging_values_with_pointers() {
 
 void strings_class() {
   char my_str[] = "Hola, Mundo";
+
+  // concatenar cadenas
+  char str_one[] = "Hola";
+  char str_two[] = "mundo";
+  char str_finally[40];
+
+  strcpy(str_finally, str_one);
+  strcat(str_finally, str_two);
+
+  printf("Cadena concatenada: %s\n", str_finally);
+
+  // comparar cadenas
+  if (strcmp(str_one, "Hola") == 0) {
+    printf("Las cadenas son iguales\n");
+  }
+
+  // Buscar una subcadena
+  if (strstr(str_finally, "mundo") != NULL) {
+    printf("La palabra existe en la cadena\n");
+  }
+
   printf("%lu\n", strlen(my_str));
 }
 
