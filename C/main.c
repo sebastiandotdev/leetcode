@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 // Constantes
-#define NOT_CHANGE 'SOLID'
+#define NOT_CHANGE 'S'
 #define PI 3.14
 
 void great(int num) { printf("Hi %d\n", num); }
