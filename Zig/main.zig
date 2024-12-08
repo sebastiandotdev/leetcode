@@ -1,6 +1,7 @@
 const std = @import("std");
-const debug = @import("std").debug;
-const mem = @import("std").mem;
+
+const debug = std.debug;
+const mem = std.mem;
 
 fn foo() void {
     var y: i32 = 10;
