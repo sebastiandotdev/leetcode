@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // Constantes
 #define NOT_CHANGE 'S'
@@ -30,6 +31,11 @@ void exchanging_values_with_pointers() {
 
   free(a);
   free(b);
+}
+
+void strings_class() {
+  char my_str[] = "Hola, Mundo";
+  printf("%lu\n", strlen(my_str));
 }
 
 int pointers_class() {
@@ -225,5 +231,8 @@ int main() {
   pointers_class();
   example_use(10, 50);
   exchanging_values_with_pointers();
+
+  // strings
+  strings_class();
   return 0;
 }

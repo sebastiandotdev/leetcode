@@ -3,7 +3,4 @@
   "[typescript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },
-  "[c]": {
-    "editor.defaultFormatter": "xaver.clang-format"
-  }
 }
