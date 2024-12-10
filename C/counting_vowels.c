@@ -4,12 +4,15 @@
 
 #define MAX_WORD_LENGTH 100
 
-void counting_vowels() {
+int counting_vowels() {
   char word[MAX_WORD_LENGTH];
   int amount_vowels = 0;
 
-  printf("Ingresa una palabra: ");
-  fgets(word, MAX_WORD_LENGTH, stdin);
+  printf("Write a word: ");
+  if (fgets(word, MAX_WORD_LENGTH, stdin) == NULL) {
+    fprintf(stderr, "Error reading the entrance");
+    return (1);
+  }
 
   int length = strlen(word) - 1;
 
@@ -23,6 +26,8 @@ void counting_vowels() {
   }
 
   printf("This is the numbers of vowels your word has: %d\n", amount_vowels);
+
+  return (0);
 }
 
 int main() {
