@@ -2,14 +2,14 @@
 #include <stdio.h>
 #include <string.h>
 
-const int MAX_CHARACTER = 100;
+#define MAX_WORD_LENGTH 100
 
 void counting_vowels() {
-  char word[MAX_CHARACTER];
+  char word[MAX_WORD_LENGTH];
   int amount_vowels = 0;
 
   printf("Ingresa una palabra: ");
-  fgets(word, MAX_CHARACTER, stdin);
+  fgets(word, MAX_WORD_LENGTH, stdin);
 
   int length = strlen(word) - 1;
 
