@@ -21,15 +21,15 @@
 #include <stdio.h>
 #include <string.h>
 
-const int MAX_CHARACTER = 100;
-const int MINUS_ONE = 1;
+#define MAX_WORD_LENGTH 100
+#define MINUS_ONE 1
 
 bool string_is_palindrome() {
-  char string[MAX_CHARACTER];
+  char string[MAX_WORD_LENGTH];
   bool is_palindrome = true;
 
   printf("Ingresa la palabra a validar: ");
-  fgets(string, MAX_CHARACTER, stdin);
+  fgets(string, MAX_WORD_LENGTH, stdin);
 
   int length = strlen(string) - 1;
 
