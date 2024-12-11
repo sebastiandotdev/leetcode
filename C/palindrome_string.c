@@ -38,8 +38,8 @@ bool string_is_palindrome() {
   }
 
   for (int i = 0; i < length / 2; i++) {
-    char opposite_char = tolower(string[length - i - MINUS_ONE]);
     char current_char = tolower(string[i]);
+    char opposite_char = tolower(string[length - i - MINUS_ONE]);
 
     if (current_char != opposite_char) {
       is_palindrome = false;
