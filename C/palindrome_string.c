@@ -37,6 +37,14 @@ bool string_is_palindrome() {
     return true;
   }
 
+  // R A D A R
+  // 5 - 0 - 1 = 4
+  // 5 - 1 - 1 = 3
+  // 5 - 2 - 1 = 2
+  // string[4]
+  // string[3]
+  // ; i < length / 2; Se corta
+
   for (int i = 0; i < length / 2; i++) {
     char current_char = tolower(string[i]);
     char opposite_char = tolower(string[length - i - MINUS_ONE]);
