@@ -5,8 +5,10 @@ Arrays en C
 - Realizar ejercicios
  */
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define SIZE 5
 
@@ -72,6 +74,44 @@ void split_numbers(int len) {
   free(arr);
 }
 
+void array_string() {
+  // Declara un array de strings
+  char *names[] = {"Juan", "Pedro", "Maria"};
+
+  // Obtener la longitud del array
+  int len = sizeof(names) / sizeof(names[0]);
+
+  // Imprimir los nombres
+  for (int i = 0; i < len; i++) {
+    printf("%s\n", names[i]);
+  }
+
+  // TRANFORMAR NOMBRES EN MAYUSUCULA Y CREAR UN NUEVO ARRAY
+  char *names_upper[len];
+
+  for (int index = 0; index < len; index++) {
+    int str_len = strlen(names[index]);
+    names_upper[index] = malloc(str_len + 1);
+
+    // Convertir cada carácter a mayúscula
+    for (int j = 0; j < str_len; j++) {
+      names_upper[index][j] = toupper(names[index][j]);
+    }
+
+    names_upper[index][str_len] = '\0';
+  }
+
+  // Imprimir resultado
+  for (int i = 0; i < len; i++) {
+    printf("Nombre: %s\n", names_upper[i]);
+  }
+
+  // Liberar memoria
+  for (int i = 0; i < len; i++) {
+    free(names_upper[i]);
+  }
+}
+
 int main() {
   int nums[SIZE];
   int years[4] = {2022, 2023, 2024, 2025};
@@ -134,5 +174,6 @@ int main() {
 
   // ejercicio
   split_numbers(10);
+  array_string();
   return 0;
 }
