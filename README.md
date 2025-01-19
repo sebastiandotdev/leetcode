@@ -7,6 +7,7 @@ Leetcode exercises for programming skills.
 **CSS**
 
 - https://www.shapedivider.app/
+- https://photogradient.com/
 
 ## License
 
