@@ -2,6 +2,12 @@
 
 Leetcode exercises for programming skills.
 
-**License**
+## Resources
+
+**CSS**
+
+- https://www.shapedivider.app/
+
+## License
 
 [MIT](./LICENSE)
