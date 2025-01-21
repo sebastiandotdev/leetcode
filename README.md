@@ -9,6 +9,7 @@ Leetcode exercises for programming skills.
 - https://www.shapedivider.app/
 - https://photogradient.com/
 - https://fontjoy.com/
+- https://colourpalettegenerator.com
 
 ## License
 
