@@ -10,6 +10,7 @@ Leetcode exercises for programming skills.
 - https://photogradient.com/
 - https://fontjoy.com/
 - https://colourpalettegenerator.com
+- https://cssgradienttext.com
 
 ## License
 
