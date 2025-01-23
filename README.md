@@ -11,6 +11,7 @@ Leetcode exercises for programming skills.
 - https://fontjoy.com/
 - https://colourpalettegenerator.com
 - https://cssgradienttext.com
+- https://easingwizard.com
 
 ## License
 
