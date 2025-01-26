@@ -13,6 +13,8 @@ Leetcode exercises for programming skills.
 - https://cssgradienttext.com
 - https://easingwizard.com
 
+**APIs**
+- https://ipquery.io
 ## License
 
 [MIT](./LICENSE)
