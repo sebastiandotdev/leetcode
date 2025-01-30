@@ -100,4 +100,16 @@ fun main() {
 
     println("Locked list: $shapesLocked")
     println("square" in shapesLocked)
+
+    val setReadOnly = setOf("triangle", "square", "circle", "circle")
+    println(setReadOnly)
+
+    val setMutable = mutableSetOf("triangle", "square", "circle", "circle")
+    setMutable.add("square")
+    setMutable.add("squarex")
+
+    println(setMutable)
+
+    val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
+    println("This set has ${readOnlyFruit.count()} items")
 }
