@@ -77,4 +77,27 @@ fun main() {
     println(diasTranscurridos)
     println(idUsuario)
     println(microsegundos)
+
+    // Read only list
+    val readOnlyShapes = listOf("triangle", "square", "circle")
+    println(readOnlyShapes)
+    println("Access position: ${readOnlyShapes[0]}")
+    println("Access position list() : ${readOnlyShapes.first()}")
+    println("Access position last() : ${readOnlyShapes.last()}")
+    println("Get length count() : ${readOnlyShapes.count()}")
+
+    val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle")
+    println(shapes)
+
+    shapes.add("pentagon")
+    println(shapes)
+
+    shapes.remove("pentagon")
+    println(shapes)
+
+    val listMutableShapes = mutableListOf("triangle", "square", "circle")
+    val shapesLocked: List<String> = listMutableShapes
+
+    println("Locked list: $shapesLocked")
+    println("square" in shapesLocked)
 }
