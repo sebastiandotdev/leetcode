@@ -112,4 +112,56 @@ fun main() {
 
     val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
     println("This set has ${readOnlyFruit.count()} items")
+
+    val readOnlyJuiceMenu = mapOf("apple" to 10, "kiwi" to 100, "orange" to 200)
+    println(readOnlyJuiceMenu)
+    println("The value of apple juice is: ${readOnlyJuiceMenu["apple"]}")
+
+    val juiceMenu: MutableMap<String, Int> =
+            mutableMapOf("apple" to 10, "kiwi" to 100, "orange" to 200)
+    println(juiceMenu)
+
+    // val juiceMenuMap: MutableMap<String, Int> =
+    //         mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    // val juiceMenuLocked: Map<String, Int> = juiceMenu
+
+    // Read-only map
+    val readOnlyJuiceMenuNull = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println("The value of pineapple juice is: ${readOnlyJuiceMenuNull["pineapple"]}")
+    // The value of pineapple juice is: null
+
+    val juiceMenuChange: MutableMap<String, Int> =
+            mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+
+    juiceMenuChange["coconut"] = 150 // Add key "coconut" with value 150 to the map
+    println(juiceMenuChange)
+    // {apple=100, kiwi=190, orange=100, coconut=150}
+
+    val juiceMenuRemove: MutableMap<String, Int> =
+            mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    juiceMenuRemove.remove("orange") // Remove key "orange" from the map
+    println(juiceMenuRemove)
+
+    val readOnlyJuiceMenuProperties = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println(readOnlyJuiceMenuProperties.keys)
+    // [apple, kiwi, orange]
+    println(readOnlyJuiceMenuProperties.values)
+    // [100, 190, 100]
+
+    val greenNumbers = listOf(1, 4, 23)
+    val redNumbers = listOf(17, 2)
+    val totalNumbers = greenNumbers.count() + redNumbers.count()
+
+    println("The amount of green numbers is: ${greenNumbers.count()}")
+    println("The amount of red numbers is: ${redNumbers.count()}")
+    println("Total number is: $totalNumbers")
+
+    val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
+    val requested = "smtp"
+    val isSupported = requested.uppercase() in SUPPORTED
+    println("Support for $requested: $isSupported")
+
+    val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")
+    val n = 2
+    println("$n is spelt as '${number2word[n]}'")
 }
