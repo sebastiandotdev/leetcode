@@ -1,0 +1,25 @@
+#! /bin/zsh
+
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+if [ $# -eq 0 ]; then
+    echo "Usando: $0 <archivo.c>"
+    exit 1
+fi
+
+filename=$(basename "$1" .c)
+
+rm -rf ./$filename
+
+clang "$1" -o "$filename"
+
+if [ $? -eq 0 ]; then
+    echo "${GREEN}Compiled C code ✅${NC}"
+    ./$filename
+
+    rm -f ./$filename
+    echo "${GREEN}Binary cleaned 🧹${NC}"
+else
+    echo "Error al compilar"
+fi
