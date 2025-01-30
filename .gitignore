@@ -5,6 +5,10 @@
 # Prerequisites
 *.d
 
+### Kotlin ###
+
+*.jar
+
 # Object files
 *.o
 *.ko

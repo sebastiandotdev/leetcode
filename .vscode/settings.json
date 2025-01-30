@@ -1,6 +1,7 @@
 {
   "editor.formatOnSave": true,
+  "kotlin.languageServer.enabled": true,  
   "[typescript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
-  },
+  },  
 }
