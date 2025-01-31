@@ -41,9 +41,3 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
   result[1] = 1;
   return result;
 }
-
-int main() {
-  int nums[] = {2, 11, 7, 15};
-  two_sum(nums, 4, 9);
-  return 0;
-}
