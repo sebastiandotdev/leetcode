@@ -36,19 +36,20 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 */
 
-export function romanToInt(s: string) {
-  const romanNumerals: Record<string, number> = {
-    "I": 1,
-    "V": 5,
-    "X": 10,
-    "L": 50,
-    "C": 100,
-    "D": 500,
-    "M": 1000,
-  };
+const romanNumerals: Record<string, number> = {
+  "I": 1,
+  "V": 5,
+  "X": 10,
+  "L": 50,
+  "C": 100,
+  "D": 500,
+  "M": 1000,
+};
 
+export function romanToInt(s: string) {
   const convertRomanNumeralsToArray = s.split("");
   const romanNumeralInInteger: number[] = [];
+  const total: number[] = [];
 
   for (const numeral of convertRomanNumeralsToArray) {
     const romanNumeroInteger = romanNumerals[numeral];
@@ -58,7 +59,20 @@ export function romanToInt(s: string) {
     romanNumeralInInteger.push(romanNumeroInteger);
   }
 
-  const total = romanNumeralInInteger.reduce((acc, value) => acc + value);
+  for (let i = 0; i < romanNumeralInInteger.length; i++) {
+    if (
+      romanNumeralInInteger[i] > romanNumeralInInteger[i + 1] ||
+      romanNumeralInInteger[i] === romanNumeralInInteger[i + 1]
+    ) {
+      total.push(romanNumeralInInteger[i]);
+    } else if (romanNumeralInInteger[i] < romanNumeralInInteger[i + 1]) {
+      const result = romanNumeralInInteger[i + 1] - romanNumeralInInteger[i];
+      total.push(result);
+      i++;
+    } else {
+      total.push(romanNumeralInInteger[i]);
+    }
+  }
 
-  return total;
+  return total.reduce((acc, value) => acc + value, 0);
 }
