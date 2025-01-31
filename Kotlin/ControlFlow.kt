@@ -68,4 +68,33 @@ fun main() {
                 else -> "There is no such button"
             }
     )
+
+    // For
+
+    for (number in 1..5) {
+        println(number)
+    }
+
+    // using collections
+
+    val cakes = listOf("carrot", "cheese", "chocolate")
+
+    for (cake in cakes) {
+        println("Yummy, it's a $cake cake!")
+    }
+
+    // WHile
+
+    var cakesEaten = 0
+    var cakesBaked = 0
+
+    while (cakesEaten < 3) {
+        println("Eat a  cake")
+        cakesEaten++
+    }
+
+    do {
+        println("Bake a cake")
+        cakesBaked++
+    } while (cakesBaked < cakesEaten)
 }
