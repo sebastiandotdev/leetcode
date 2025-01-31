@@ -23,28 +23,23 @@
 // const result: number[] = twoSum(nums, target); // [0, 1]
 // ```
 // =============================================================================
+int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+  int* result = (int*)malloc(2 * sizeof(int));
+  *returnSize = 2;
 
-// TODO:
-// 1. Debe retornar el arreglo
-// 2. Debe no recibir el tamaño del arreglo
-void two_sum(int nums[], int size, int target) {
-  int result[] = {};
-  int sum = 0;
-
-  for (int i = 0; i < size; i++) {
-    for (int j = i + 1; j < size; j++) {
-      sum = nums[i] + nums[j];
-
-      if (sum == target) {
+  for (int i = 0; i < numsSize; i++) {
+    for (int j = i + 1; j < numsSize; j++) {
+      if (nums[i] + nums[j] == target) {
         result[0] = i;
         result[1] = j;
-      } else {
-        sum = 0;
+        return result;
       }
     }
   }
 
-  printf("Posicion 0 es: %d - Posicion 1 es: %d\n", result[0], result[1]);
+  result[0] = 0;
+  result[1] = 1;
+  return result;
 }
 
 int main() {
