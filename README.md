@@ -12,10 +12,10 @@ Leetcode exercises for programming skills.
 - https://www.shapedivider.app/
 - https://photogradient.com/
 - https://fontjoy.com/
-- https://colourpalettegenerator.com
-- https://cssgradienttext.com
-- https://easingwizard.com
-- https://flexboxlabs.netlify.app/grid
+- https://colourpalettegenerator.com/
+- https://cssgradienttext.com/
+- https://easingwizard.com/
+- https://flexboxlabs.netlify.app/
 
 **APIs**
 - https://ipquery.io
