@@ -4,6 +4,9 @@ Leetcode exercises for programming skills.
 
 ## Resources
 
+**JavaScript**
+- https://swapy.tahazsh.com/
+
 **CSS**
 
 - https://www.shapedivider.app/
@@ -16,6 +19,7 @@ Leetcode exercises for programming skills.
 
 **APIs**
 - https://ipquery.io
+
 ## License
 
 [MIT](./LICENSE)
