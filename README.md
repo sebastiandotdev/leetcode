@@ -6,6 +6,7 @@ Leetcode exercises for programming skills.
 
 **JavaScript**
 - https://swapy.tahazsh.com/
+- https://github.com/hexagoncircle/pixel-canvas
 
 **CSS**
 
