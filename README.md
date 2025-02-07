@@ -5,8 +5,13 @@ Leetcode exercises for programming skills.
 ## Resources
 
 **JavaScript**
+
 - https://swapy.tahazsh.com/
 - https://github.com/hexagoncircle/pixel-canvas
+
+**HTML**
+
+- https://caninclude.glitch.me
 
 **CSS**
 
@@ -19,6 +24,7 @@ Leetcode exercises for programming skills.
 - https://flexboxlabs.netlify.app/
 
 **APIs**
+
 - https://ipquery.io
 - https://retool.com/api-generator
 - https://fey.com/logos
