@@ -1,12 +1,10 @@
-const MINUS_ONE = 1;
-
-export function is_palindrome_string(word: string) {
-  const len_string = word.length;
+export function is_palindrome_string(word: string) {  
+  const MINUS_ONE = 1;
   let is_palindrome = true;
 
-  for (let i = 0; i < len_string / 2; i++) {
-    const current_char = word[i].toLowerCase();
-    const opposite_char = word[len_string - i - MINUS_ONE].toLowerCase();
+  for (let index = 0; index < word.length / 2; index++) {
+    const current_char = word[index].toLowerCase();
+    const opposite_char = word[word.length - index - MINUS_ONE].toLowerCase();
 
     if (current_char !== opposite_char) {
       is_palindrome = false;
