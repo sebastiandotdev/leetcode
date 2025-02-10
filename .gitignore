@@ -77,4 +77,8 @@ build/
 build-*/
 docgen_tmp/
 
-# End of https://www.toptal.com/developers/gitignore/api/zig,deno,c
+### Python ###
+
+.venv
+
+# End of https://www.toptal.com/developers/gitignore/api/zig,deno,c and python
