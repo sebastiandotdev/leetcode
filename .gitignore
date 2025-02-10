@@ -80,5 +80,6 @@ docgen_tmp/
 ### Python ###
 
 .venv
+.ruff_cache
 
 # End of https://www.toptal.com/developers/gitignore/api/zig,deno,c and python
