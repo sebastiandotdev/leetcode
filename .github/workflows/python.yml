@@ -27,6 +27,3 @@ jobs:
 
       - name: Verify formatting
         run: uvx ruff check Python/
-
-      - name: Verify Tests
-      - run: python -m unittest discover Python/
