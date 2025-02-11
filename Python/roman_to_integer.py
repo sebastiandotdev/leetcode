@@ -70,3 +70,20 @@ def roman_to_integer(n: str):
         roman_numeral_in_integer.append(roman_numeral_integer)
 
     index = 0
+
+    while index < len(roman_numeral_in_integer):
+        if (
+            index == len(roman_numeral_in_integer) - 1
+            or roman_numeral_in_integer[index] >= roman_numeral_in_integer[index + 1]
+        ):
+            total.append(roman_numeral_in_integer[index])
+            index += 1
+        else:
+            subtract_the_smallest = (
+                roman_numeral_in_integer[index + 1] - roman_numeral_in_integer[index]
+            )
+
+            total.append(subtract_the_smallest)
+            index += 2
+
+    return sum(total)
