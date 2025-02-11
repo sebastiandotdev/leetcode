@@ -24,6 +24,14 @@ pub fn main() void {
     user_convetional.diagnose();
     new_user.diagnose();
 
+    // Tenga en cuenta que este error solo se produjo porque usamos var.
+    //Si hubiéramos usado const, no habríamos tenido el error, ya
+    //que el objetivo del error es que a comptime_int debe ser constante.
+    // var number = 10; // ERROR
+    const number = 10;
+    debug.print("NUMERO COMPTIME_INT: {d}\n", .{number});
+
+    debug.print("{any}\n", .{@TypeOf(.{ .month = 2, .year = 2025 })});
     debug.print("{s}", .{optional_power_user.name});
     debug.print("{s}'s power is {d}\n", .{ new_user.name, new_user.power });
     debug.print("8999 + 2 = {d}\n", .{sum});
