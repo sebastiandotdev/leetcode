@@ -23,12 +23,12 @@
 // const result: number[] = twoSum(nums, target); // [0, 1]
 // ```
 // =============================================================================
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+int* two_sum(int* nums, int nums_size, int target, int* return_size) {
   int* result = (int*)malloc(2 * sizeof(int));
-  *returnSize = 2;
+  *return_size = 2;
 
-  for (int i = 0; i < numsSize; i++) {
-    for (int j = i + 1; j < numsSize; j++) {
+  for (int i = 0; i < nums_size; i++) {
+    for (int j = i + 1; j < nums_size; j++) {
       if (nums[i] + nums[j] == target) {
         result[0] = i;
         result[1] = j;
