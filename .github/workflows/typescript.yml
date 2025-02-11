@@ -1,0 +1,30 @@
+name: TypeScript
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  typescript:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno }}
+
+      - name: Verify formatting
+        run: deno fmt TypeScript/ --check
+
+      - name: Run linter
+        run: deno lint TypeScript/
+
+      - name: Verify Tests
+        run: cd TypeScript/ && deno test
