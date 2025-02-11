@@ -1,10 +1,20 @@
 const std = @import("std");
 
+// Slices en Zig
+// Ejemplo del marcapáginas
+// Digamos que tienes un libro con el texto: "El perro ladra".
+
+// Puntero: Apunta al inicio de la palabra "perro".
+// Longitud: 5 (porque "perro" tiene 5 letra
+
 pub fn main() void {
     const a = [5]i32{ 1, 2, 3, 4, 5 };
 
     // Con diferente Sintax
     const b: [5]i32 = .{ 1, 2, 3, 4, 5 };
+
+    // Slices
+    // Puedes tener múltiples slices que apunten a diferentes partes de la misma cadena (o array de bytes).
     const pointer_value = a[1..4];
 
     // Inferencia en la longitud durante tiempo de compilación
