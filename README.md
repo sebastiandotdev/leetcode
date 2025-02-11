@@ -29,6 +29,12 @@ Leetcode exercises for programming skills.
 - https://retool.com/api-generator
 - https://fey.com/logos
 
+**Zig**
+
+- https://www.openmymind.net/learning_zig/
+- https://zig.guide/
+- https://cookbook.ziglang.cc/
+
 ## License
 
 [MIT](./LICENSE)
