@@ -61,8 +61,7 @@ export function romanToInt(s: string) {
 
   for (let i = 0; i < romanNumeralInInteger.length; i++) {
     if (
-      romanNumeralInInteger[i] > romanNumeralInInteger[i + 1] ||
-      romanNumeralInInteger[i] === romanNumeralInInteger[i + 1]
+      romanNumeralInInteger[i] >= romanNumeralInInteger[i + 1]
     ) {
       total.push(romanNumeralInInteger[i]);
     } else if (romanNumeralInInteger[i] < romanNumeralInInteger[i + 1]) {

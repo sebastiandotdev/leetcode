@@ -1,5 +1,5 @@
 import { assert } from "@std/assert";
-import { romanToInt } from "./roman_to_Integer.ts";
+import { romanToInt } from "./roman_to_integer.ts";
 
 Deno.test("Should return 3", () => {
   const total = romanToInt("III");
