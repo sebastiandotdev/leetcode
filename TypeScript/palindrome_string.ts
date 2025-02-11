@@ -1,4 +1,4 @@
-export function is_palindrome_string(word: string) {  
+export function is_palindrome_string(word: string) {
   const MINUS_ONE = 1;
   let is_palindrome = true;
 

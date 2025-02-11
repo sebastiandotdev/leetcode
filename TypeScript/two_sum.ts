@@ -21,18 +21,18 @@
 // =============================================================================
 
 export function twoSum(nums: number[], target: number) {
-    const map = new Map(); // new Map { }
+  const map = new Map(); // new Map { }
 
-    for (let i = 0; i < nums.length; i++) { // 1
-        const num = nums[i]; // numero 2
-        const value = target - num; // 7,  -2
+  for (let i = 0; i < nums.length; i++) { // 1
+    const num = nums[i]; // numero 2
+    const value = target - num; // 7,  -2
 
-        if (map.has(value)) {
-            return [map.get(value), i]; // NO SE COMPLE EN EL PRIMER CICLO
-        }
-
-        map.set(num, i);
+    if (map.has(value)) {
+      return [map.get(value), i]; // NO SE COMPLE EN EL PRIMER CICLO
     }
 
-    return map;
+    map.set(num, i);
+  }
+
+  return map;
 }
