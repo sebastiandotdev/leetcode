@@ -58,18 +58,20 @@ export function romanToInt(s: string) {
 
     romanNumeralInInteger.push(romanNumeroInteger);
   }
+  let index = 0;
 
-  for (let i = 0; i < romanNumeralInInteger.length; i++) {
+  while (index < romanNumeralInInteger.length) {
     if (
-      romanNumeralInInteger[i] >= romanNumeralInInteger[i + 1]
+      index === romanNumeralInInteger.length - 1 ||
+      romanNumeralInInteger[index] >= romanNumeralInInteger[index + 1]
     ) {
-      total.push(romanNumeralInInteger[i]);
-    } else if (romanNumeralInInteger[i] < romanNumeralInInteger[i + 1]) {
-      const result = romanNumeralInInteger[i + 1] - romanNumeralInInteger[i];
-      total.push(result);
-      i++;
+      total.push(romanNumeralInInteger[index]);
+      index += 1;
     } else {
-      total.push(romanNumeralInInteger[i]);
+      const result = romanNumeralInInteger[index + 1] -
+        romanNumeralInInteger[index];
+      total.push(result);
+      index += 2;
     }
   }
 

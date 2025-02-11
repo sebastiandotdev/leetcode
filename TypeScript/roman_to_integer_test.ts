@@ -33,6 +33,5 @@ Deno.test("Should return 4", () => {
   const total = romanToInt("IV");
   const TOTAL_REFERENCE = 4;
 
-  console.log(total);
   assert(total === TOTAL_REFERENCE);
 });
