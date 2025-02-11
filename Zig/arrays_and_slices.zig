@@ -8,7 +8,7 @@ const std = @import("std");
 // Longitud: 5 (porque "perro" tiene 5 letra
 
 pub fn main() void {
-    const a = [5]i32{ 1, 2, 3, 4, 5 };
+    var a = [5]i32{ 1, 2, 3, 4, 5 };
 
     // Con diferente Sintax
     const b: [5]i32 = .{ 1, 2, 3, 4, 5 };
@@ -19,6 +19,12 @@ pub fn main() void {
 
     // Inferencia en la longitud durante tiempo de compilación
     const c = [_]i32{ 1, 2, 3, 4, 5 };
+
+    const slice_mut = a[0..2];
+
+    slice_mut[0] = 99;
+
+    std.debug.print("Types mutable slice: {d}\n", .{slice_mut[0]});
 
     // Dará un error en tiempo de compilación ya que `pointer_value` al final esta apuntando a la longitud de la variable `a`
     // Y a es una matriz de numeros contantes para lograr que esta linea funcione debemos cambiar `const` por `var`  en la variable `a`
