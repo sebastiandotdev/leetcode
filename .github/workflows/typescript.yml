@@ -20,11 +20,11 @@ jobs:
         with:
           deno-version: ${{ matrix.deno }}
 
-      - name: Verify formatting        
+      - name: Verify formatting
         run: deno fmt TypeScript/ --check
 
-      - name: Run linter        
+      - name: Run linter
         run: deno lint TypeScript/
 
-      - name: Verify Tests        
+      - name: Verify Tests
         run: cd TypeScript/ && deno test
