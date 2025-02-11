@@ -1,5 +1,5 @@
 const debug = @import("std").debug;
-const user = @import("models/user.zig");
+const user = @import("user.zig");
 
 const MAX_POWER = user.MAX_POWER;
 const User = user.User;
