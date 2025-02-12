@@ -17,6 +17,7 @@ pub fn main() void {
         .name = "Goku",
     };
 
+    _ = add(10, 20);
     const user_convetional: User = .{ .power = 9002, .name = "Broly" };
 
     const optional_power_user = User{ .name = "Vegeta" };
