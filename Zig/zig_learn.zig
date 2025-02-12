@@ -1,10 +1,19 @@
 const debug = @import("std").debug;
 const user = @import("user.zig");
 
+// El código fuente de Zig tiene una sangría de cuatro espacios. Personalmente, utilizo una tabulación que objetivamente es mejor para la accesibilidad.
+
+// Los nombres de las funciones son camelCase y las variables son snake_case. Los tipos son PascalCase. Existe una intersección interesante entre estas tres reglas. Las variables que hacen referencia a un tipo, o las funciones que devuelven un tipo, siguen la regla del tipo y son PascalCase. Ya vimos esto, aunque es posible que no lo hayas notado.
+
 const MAX_POWER = user.MAX_POWER;
+
 const User = user.User;
 
+// Hemos visto otras funciones incorporadas: @import, @remy @intCast. Dado que son funciones, son camelCase. @TypeOftambién es una función incorporada, pero es PascalCase, ¿por qué? Porque devuelve un tipo y, por lo tanto, se utiliza la convención de nombres de tipos. Si tuviéramos que asignar el resultado de @TypeOfa una variable, utilizando la convención de nombres de Zig, esa variable también debería ser PascalCase:
+
 fn add(a: i64, b: i64) i64 {
+    const T = @TypeOf(3);
+    debug.print("{any}\n", .{T});
     return a + b;
 }
 
