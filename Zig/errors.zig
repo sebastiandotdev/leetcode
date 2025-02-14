@@ -21,7 +21,13 @@ pub const Save = struct {
     }
 };
 
+pub fn throwError() OpenError {
+    return OpenError.NotFound;
+}
+
 pub fn main() !void {
     const save = (try Save.loadLast()) orelse Save.blank();
+
+    throwError();
     std.debug.print("{any}\n", .{save});
 }
