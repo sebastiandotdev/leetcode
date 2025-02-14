@@ -3,6 +3,7 @@
 // IMPORTANT: Cuando le pases un argumento a una funcion de forma predeterminada Zig le pasará una copia del dato que intentas manipular internamente en la funcion.
 const std = @import("std");
 
+// Pero para los programas que se ejecutan durante días, meses o incluso años, la memoria se convierte en un recurso limitado y preciado, que probablemente busquen otros procesos que se ejecutan en la misma máquina. Simplemente no hay forma de esperar hasta que el programa salga para liberar memoria. Esta es la tarea principal de un recolector de basura: saber qué datos ya no se utilizan y liberar su memoria. En Zig, usted es el recolector de basura.
 pub fn main() void {
     var user = User{
         .id = 1,
