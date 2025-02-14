@@ -1,5 +1,11 @@
 const std = @import("std");
 
+// IMPORTANT:
+
+// La mayoría de los programas que escribas utilizarán tres "áreas" de memoria. La primera es el espacio global, que es donde se almacenan las constantes del programa, incluidas las cadenas literales. Todos los datos globales están integrados en el binario, se conocen completamente en tiempo de compilación (y, por lo tanto, en tiempo de ejecución) y son inmutables. Estos datos existen durante toda la vida útil del programa y nunca necesitan más o menos memoria. Aparte del impacto que tiene en el tamaño de nuestro binario, esto no es algo de lo que debamos preocuparnos en absoluto.
+
+// La segunda área de la memoria es la pila de llamadas, que es el tema de esta parte. La tercera área es el montón, que es el tema de la siguiente parte.
+
 // Obtuve:
 // User 2 has power of 20
 // User 9114745905793990681 has power of 0
