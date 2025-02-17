@@ -1,4 +1,3 @@
-#include <stdio.h>
 
 // =============================================================================
 // Two Sum (Suma de Dos)
@@ -23,21 +22,43 @@
 // const result: number[] = twoSum(nums, target); // [0, 1]
 // ```
 // =============================================================================
-int* two_sum(int* nums, int nums_size, int target, int* return_size) {
-  int* result = (int*)malloc(2 * sizeof(int));
-  *return_size = 2;
+#include <stdio.h>
+#include <stdlib.h>
 
-  for (int i = 0; i < nums_size; i++) {
+int *twoSum(int *nums, int nums_size, int target, int *return_size) {
+  *return_size = 2;
+  int *return_values = malloc((*return_size) * sizeof(int));
+
+  if (return_values == NULL) {
+    *return_values = 0;
+    return NULL;
+  }
+
+  for (int i = 0; i < nums_size - 1; i++) {
     for (int j = i + 1; j < nums_size; j++) {
       if (nums[i] + nums[j] == target) {
-        result[0] = i;
-        result[1] = j;
-        return result;
+        return_values[0] = i;
+        return_values[1] = j;
+        break;
       }
     }
   }
 
-  result[0] = 0;
-  result[1] = 1;
-  return result;
+  return return_values;
+}
+
+#define NUMS_SIZE 4
+
+int main() {
+  int nums[NUMS_SIZE] = {2, 7, 11, 15};
+  int return_size = 2;
+
+  int *result = twoSum(nums, NUMS_SIZE, 9, &return_size);
+
+  for (int i = 0; i < return_size; i++) {
+    printf("[%d]", result[i]);
+  }
+
+  free(result);
+  return 0;
 }
