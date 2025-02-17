@@ -1,5 +1,5 @@
 import { assert, assertFalse } from "@std/assert";
-import { isPalindromeNumber } from "./panlindrome_number.ts";
+import { isPalindromeNumber } from "./palindrome_number.ts";
 
 Deno.test("Should be return false", () => {
   const notPalindromeNumber = isPalindromeNumber(10);
