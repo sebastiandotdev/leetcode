@@ -3,5 +3,11 @@
   "IndentWidth": 2,
   "BraceWrapping": {
     "AfterControlStatement": false
-  }
+  },
+
+  "ArrayInitializerWrap": "Chop",
+  "BinPackArguments": false,
+  "BinPackParameters": false,
+  "ColumnLimit": 80,
+  "MaxEmptyLinesToKeep": 1
 }
