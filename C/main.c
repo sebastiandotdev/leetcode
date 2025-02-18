@@ -3,6 +3,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Orden Sugerido:
+
+// 1. Estructuras y Uniones (Progress)
+// 2. Gestión de Memoria Dinámica
+// 3. Cadenas (Strings)
+// 4. Entrada/Salida (I/O) con Archivos
+// 5. Preprocesador
+// 6. Tipos de datos abstractos (TAD) y estructuras de datos básicas
+// 7. Bits y Operadores Bitwise
+// 8. Múltiples archivos y Compilación
+
 // Constantes
 #define NOT_CHANGE 'S'
 #define PI 3.14
