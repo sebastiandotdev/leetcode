@@ -54,6 +54,25 @@ typedef struct OtherStruct {
   int some;
 } OtherStruct;
 
+// Con structs ya existentes
+typedef struct Plan TypePlan;
+
+typedef struct Book {
+  char title[50];
+  char author[50];
+  int year;
+  float price;
+} Book;
+
+typedef struct Rectangle {
+  float width;
+  float heigth;
+} IRectangle;
+
+float calculateArea(IRectangle *rectangle) {
+  return rectangle->width * rectangle->heigth;
+}
+
 int main() {
   struct Persona persona;
   struct Product product;
@@ -61,6 +80,25 @@ int main() {
 
   // Más simple al declarar
   OtherStruct other_struct;
+
+  Book book;
+
+  strcpy(book.title, "Bajo la misma estrella");
+  strcpy(book.author, "John Green");
+
+  book.price = 3.99;
+  book.year = 2012;
+
+  printf(
+      "================================== LIBRO "
+      "======================================\n");
+  printf("TITUTLO: %s\n", book.title);
+  printf("AUTHOR: %s\n", book.author);
+  printf("PRECIO: %f\n", book.price);
+  printf("PRECIO: %d\n", book.year);
+  printf(
+      "========================================================================"
+      "=======\n\n");
 
   strcpy(product.name, "Tablet Pixel");
   strcpy(persona.name, "William Braham");
@@ -78,16 +116,27 @@ int main() {
 
   // Acceder a los miembros usando la forma equivalente con desreferenciación:
   printf("Nombre (desreferenciado): %s\n", (*ptr_persona).name);
+
+  IRectangle rec;
+
+  rec.width = 1.90;
+  rec.heigth = 2.90;
+
+  float area = calculateArea(&rec);
+
+  printf("LA AREA DEL RECTANGLE ES: %f\n", area);
   return (0);
 }
 
 // Ejercicios para Tareas
 
+// (✅ COMPLETADO)
 // Libro: Define una estructura llamada Libro que contenga los siguientes
 // miembros: titulo (cadena), autor (cadena), anio (entero) y precio (flotante).
 // Crea un programa que declare una variable de tipo Libro, asigne valores a sus
 // miembros y luego imprima la información del libro.
 
+// (✅ COMPLETEADO)
 // Rectángulo: Define una estructura llamada Rectangulo que contenga los
 // siguientes miembros: ancho (flotante) y alto (flotante). Crea una función que
 // reciba un Rectangulo como argumento y calcule su área. Crea un programa que
