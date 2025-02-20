@@ -24,6 +24,7 @@
 //  etc.
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 struct Product {
@@ -69,6 +70,19 @@ typedef struct Rectangle {
   float heigth;
 } IRectangle;
 
+// Escribe la materia: Ciencias naturales
+
+// Nombre del 1 estudiante:
+// Nota del 1 estudiante:
+
+// Nombre del 2 esduiante:
+
+typedef struct Student {
+  char name[50];
+  char subject[50];
+  float average;
+} IStudent;
+
 float calculateArea(IRectangle *rectangle) {
   return rectangle->width * rectangle->heigth;
 }
@@ -81,6 +95,48 @@ int main() {
   // Más simple al declarar
   OtherStruct other_struct;
 
+  const int LEN_STUDENT = 5;
+  const int LEN_SUBJECT = 50;
+
+  char subject[LEN_SUBJECT];
+  IStudent *students = (IStudent *)malloc(LEN_STUDENT * sizeof(IStudent));
+
+  if (students == NULL) {
+    fprintf(stderr, "Memory allocation failed\n");
+    return (1);
+  }
+
+  printf("Escribe la materia: ");
+  if (fgets(subject, LEN_SUBJECT, stdin) == NULL) {
+    fprintf(stderr, "Error reading the entrance");
+    return (1);
+  }
+
+  int index_new = 0;
+
+  while (index_new <= 5) {
+    printf("Escribe El nombre del estudiante: ");
+    if (fgets(students[index_new].name, LEN_SUBJECT, stdin) == NULL) {
+      fprintf(stderr, "Error reading the entrance");
+      return (1);
+    }
+
+    // printf("Escribe la nota del estudiante: ");
+    // if (fgets(students[index_new].average, LEN_SUBJECT, stdin) == NULL) {
+    //   fprintf(stderr, "Error reading the entrance");
+    //   return (1);
+    // }
+
+    strcpy(students[index_new].subject, subject);
+    index_new += 1;
+  }
+
+  for (int j = 0; j < LEN_STUDENT; j++) {
+    printf("Nombre de los estudiantes más sus notas\n");
+    printf(" %s -> %f ", students[j].name, students[j].average);
+  }
+  free(students);
+  int index = 0;
   Book book;
 
   strcpy(book.title, "Bajo la misma estrella");
