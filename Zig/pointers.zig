@@ -31,3 +31,62 @@ pub const User = struct {
         user.power += 1;
     }
 };
+
+// Diferencia entre números con signo (signed) y sin signo (unsigned)
+// Los números enteros en programación pueden clasificarse en dos tipos principales:
+
+// Números con signo (signed):
+
+// Pueden representar valores negativos y positivos.
+// Ejemplo en i32 (entero con signo de 32 bits):
+// Rango: −2,147,483,648 a 2,147,483,647.
+// Números sin signo (unsigned):
+
+// Solo representan valores positivos.
+// Ejemplo en u32 (entero sin signo de 32 bits):
+// Rango: 0 a 4,294,967,295.
+
+// “### **Resumen**
+// | Lenguaje | `const` afecta la referencia | `const` hace inmutable el contenido | | --- | --- | --- |
+// | TypeScript | ✅ No puedes reasignar la variable | ❌ El contenido sigue siendo mutable |
+// | Zig | ✅ No puedes reasignar la variable | ✅ También impide modificar su contenido | Si en Zig **quieres que el contenido sea mutable**, usa `var`. 🚀”
+
+fn exercismWithAllocator() !void {
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    const allocator = gpa.allocator();
+
+    const array_of_numbers: [10]i32 = .{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+    var numbers_pars = std.ArrayList(i32).init(allocator);
+    var numbers_impars = std.ArrayList(i32).init(allocator);
+
+    defer numbers_pars.deinit();
+    defer numbers_impars.deinit();
+
+    const NUMBER_BASE: i32 = 2;
+
+    for (array_of_numbers) |value| {
+        if (@rem(value, NUMBER_BASE) == 0) {
+            try numbers_pars.append(value);
+        } else {
+            try numbers_impars.append(value);
+        }
+    }
+
+    std.debug.print("Estos son los números pares: {any}\n", .{numbers_pars.items});
+    std.debug.print("Estos son los números impares: {any}\n", .{numbers_impars.items});
+}
+
+// Cuando imprimes un std.ArrayList(i32), ves algo así:
+// array_list.ArrayListAligned(i32,null){
+//     .items = { 2, 4, 6, 8, 10 },
+//     .capacity = 8,
+//     .allocator = mem.Allocator{
+//         .ptr = anyopaque@7ff7b1ccadc0,
+//         .vtable = mem.Allocator.VTable{
+//             .alloc = fn (*anyopaque, usize, u8, usize) ?[*]u8@10e238470,
+//             .resize = fn (*anyopaque, []u8, u8, usize, usize) bool@10e238680,
+//             .free = fn (*anyopaque, []u8, u8, usize) void@10e239360
+//         }
+//     }
+// }
