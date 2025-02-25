@@ -16,7 +16,26 @@ pub fn main() void {
     const a: [3:false]bool = .{ false, true, false };
 
     const great = "Hello, word"; // *const [11:0]u8
+    const s = great.*;
 
     std.debug.print("{s}\n", .{great});
+    std.debug.print("{s}\n", .{s});
     std.debug.print("{any}\n", .{std.mem.asBytes(&a).*});
 }
+
+// Cuando digo " pointer_to_"EUR" es la dirección de memoria donde comienza el string "EUR" ", me refiero a lo siguiente:
+
+// Memoria: Imagina la memoria de tu computadora como una larga secuencia de bytes, cada uno con su propia dirección única (como los números de las casas en una calle).
+// String Literal en Memoria: Cuando defines un string literal como "EUR", el compilador de Zig reserva un espacio en la memoria para almacenar los bytes que representan ese string (en este caso, los bytes 69, 85 y 82, que corresponden a 'E', 'U' y 'R' en ASCII/UTF-8). Estos bytes se almacenan en ubicaciones de memoria contiguas.
+// Dirección de Memoria: Cada byte en la memoria tiene una dirección única. La dirección de memoria donde comienza el string "EUR" es la dirección del primer byte de ese string (en este caso, el byte 69 que representa la letra 'E').
+// Puntero: Un puntero es una variable que almacena una dirección de memoria. En el caso de pointer_to_"EUR", esta variable almacena la dirección de memoria donde comienza el string "EUR".
+// Analogía:
+
+// Imagina que tienes un libro (el string "EUR") y cada página del libro tiene un número (la dirección de memoria). El puntero pointer_to_"EUR" es como un índice que te dice en qué página (dirección de memoria) comienza el libro "EUR".
+
+// En Zig:
+
+// Cuando creas un slice de un string literal, el slice almacena dos cosas:
+
+// La dirección de memoria donde comienza el string.
+// La longitud del string (el número de bytes que contiene).
