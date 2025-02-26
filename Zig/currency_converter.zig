@@ -30,11 +30,26 @@ const mem = std.mem;
 
 const WHITESPACE_DELIMITERS: [2]u8 = .{ '\r', '\n' };
 
+const ConversionRate = struct {
+    from: []const u8,
+    to: []const u8,
+    rate: f32,
+};
+
 pub fn main() !void {
     const supported_currencies: [3][]const u8 = .{ "EUR", "COP", "USD" };
+    const conversion_rates = [6]ConversionRate{
+        .{ .from = "USD", .to = "EUR", .rate = 0.91 },
+        .{ .from = "EUR", .to = "USD", .rate = 1.10 },
+        .{ .from = "USD", .to = "COP", .rate = 3975.0 },
+        .{ .from = "COP", .to = "USD", .rate = 0.00025 },
+        .{ .from = "EUR", .to = "COP", .rate = 4372.0 },
+        .{ .from = "COP", .to = "EUR", .rate = 0.00023 },
+    };
 
     var local_currency_buffer: [1024]u8 = undefined;
     var currency_buffer_to_convert: [1024]u8 = undefined;
+    var amount_buffer: [1024]u8 = undefined;
 
     const stdin = io.getStdIn().reader();
 
@@ -44,16 +59,39 @@ pub fn main() !void {
 
     std.debug.print("Ingrese la moneda a convertir: ", .{});
     const currency_to_convert_bytes = try stdin.readUntilDelimiter(&currency_buffer_to_convert, '\n');
+    const currency = mem.trim(u8, currency_to_convert_bytes, &WHITESPACE_DELIMITERS);
+
+    std.debug.print("Ingrese el monto a convertir: ", .{});
+    const amount_bytes = try stdin.readUntilDelimiter(&amount_buffer, '\n');
+    const amount = try std.fmt.parseFloat(f32, mem.trim(u8, amount_bytes, &WHITESPACE_DELIMITERS));
+
+    var local_currency_valid = false;
+    var currency_to_convert_valid = false;
 
     for (supported_currencies) |value| {
         if (mem.eql(u8, value, local_currency)) {
-            std.debug.print("La moneda local esta disponible\n", .{});
+            local_currency_valid = true;
+        }
+        if (mem.eql(u8, value, currency)) {
+            currency_to_convert_valid = true;
+        }
+    }
+
+    if (!local_currency_valid or !currency_to_convert_valid) {
+        std.debug.print("Error: Moneda no soportada\n", .{});
+        return;
+    }
+    var conversion_rate: f32 = 0;
+
+    for (conversion_rates) |rate| {
+        if (mem.eql(u8, rate.from, local_currency) and mem.eql(u8, rate.to, currency)) {
+            conversion_rate = rate.rate;
             break;
         }
     }
 
-    std.debug.print("{s} - {s}\n", .{ local_currency_bytes, currency_to_convert_bytes });
-    std.debug.print("{*}\n", .{local_currency.ptr});
+    const result = amount * conversion_rate;
+    std.debug.print("{d} {s} = {d:.2} {s}\n", .{ amount, local_currency, result, currency });
 }
 
 // 1. Un Carácter ('A') en Memoria
