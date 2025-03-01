@@ -1,6 +1,10 @@
-const debug = @import("std").debug;
-const user = @import("user.zig");
+const std = @import("std");
 
+const debug = std.debug;
+const user = @import("user.zig");
+const testing = @import("std").testing;
+
+const allocator = testing.allocator;
 // El código fuente de Zig tiene una sangría de cuatro espacios. Personalmente, utilizo una tabulación que objetivamente es mejor para la accesibilidad.
 
 // Los nombres de las funciones son camelCase y las variables son snake_case. Los tipos son PascalCase. Existe una intersección interesante entre estas tres reglas. Las variables que hacen referencia a un tipo, o las funciones que devuelven un tipo, siguen la regla del tipo y son PascalCase. Ya vimos esto, aunque es posible que no lo hayas notado.
@@ -45,4 +49,35 @@ pub fn main() void {
     debug.print("{s}", .{optional_power_user.name});
     debug.print("{s}'s power is {d}\n", .{ new_user.name, new_user.power });
     debug.print("8999 + 2 = {d}\n", .{sum});
+}
+
+fn fibonacci(n: u16) u16 {
+    if (n == 0 or n == 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+test "function recursion" {
+    const x = fibonacci(10);
+    try testing.expect(x == 55);
+}
+
+// test "usize" {
+//     testing.expect(@sizeOf(usize) == @sizeOf(*u8));
+// }
+
+test "integer widedeing" {
+    const x: u64 = 200;
+    const y = @as(u8, @intCast(x));
+
+    try testing.expect(@TypeOf(y) == u8);
+}
+
+test "ArrayList" {
+    var strings = std.ArrayList(u8).init(allocator);
+    defer strings.deinit();
+
+    try strings.append('H');
+    try strings.append('O');
+
+    try std.testing.expect(std.mem.eql(u8, strings.items, "HO"));
 }
