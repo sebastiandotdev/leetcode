@@ -13,5 +13,6 @@ class TestPalindromeString(unittest.TestCase):
 
         self.assertEqual(is_palindrome, True)
 
+
 if __name__ == "__main__":
     unittest.main()
