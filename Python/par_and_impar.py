@@ -14,5 +14,13 @@ def main():
     print(numbers_pars)
     print(numbers_impars)
 
+
+def alternive():
+    number = int(input("Escribe un numero: "))
+    
+    if number % 2 == 0:
+        pass
+    else:
+        pass
 if __name__ == "__main__":
     main()
