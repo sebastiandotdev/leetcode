@@ -1,5 +1,6 @@
+#include <stdbool.h>
 #include <stdio.h>
-
+#include <stdlib.h>
 // El stack (pila) y el heap (montón) son dos conceptos fundamentales en la
 // gestión de memoria en C (y en muchos lenguajes), y aunque ambos son regiones
 // de memoria, tienen propósitos, comportamientos y reglas muy diferentes.
@@ -74,8 +75,38 @@
 // Alcance	Local a la función	Persiste hasta que lo liberes
 // Uso típico	Variables locales, argumentos	Arreglos dinámicos, estructuras
 // Liberación	Automática al salir del alcance	Manual con free()
+
+typedef struct {
+  int id;
+  float score;
+  bool active;
+} Student;
+
 int main() {
-  printf("%s", "Hello world");
+  int amount = 3;
+  Student *students;
+
+  students = (Student *)calloc(amount, sizeof(Student));
+
+  if (students == NULL) {
+    printf("Error allocation memory");
+    return (1);
+  }
+
+  for (int i = 0; i < amount; i++) {
+    printf("Student %d: id=%d, score=%.2f, active=%d\n",
+           i,
+           students[i].id,
+           students[i].score,
+           students[i].active);
+  }
+
+  students[0].id = 1;
+  students[0].score = 95.5;
+  students[0].active = false;
+
+  free(students);
+  printf("%s\n", "Hello world");
   return (0);
 }
 
