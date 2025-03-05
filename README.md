@@ -22,6 +22,7 @@ Leetcode exercises for programming skills.
 - https://cssgradienttext.com/
 - https://easingwizard.com/
 - https://flexboxlabs.netlify.app/
+- https://layout.bradwoods.io/
 
 **APIs**
 
