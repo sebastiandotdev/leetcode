@@ -30,6 +30,7 @@ Leetcode exercises for programming skills.
 - https://retool.com/api-generator
 - https://fey.com/logos
 - https://transform․tools
+- https://quickref.me/
 
 **Zig**
 
