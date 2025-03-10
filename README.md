@@ -8,6 +8,7 @@ Leetcode exercises for programming skills.
 
 - https://swapy.tahazsh.com/
 - https://github.com/hexagoncircle/pixel-canvas
+- https://pdfslick.dev/
 
 **HTML**
 
