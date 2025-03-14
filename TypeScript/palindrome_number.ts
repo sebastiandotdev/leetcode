@@ -17,7 +17,7 @@
 // =============================================================================
 
 // TODO: Sin hacer mutacion con String
-export function isPalindromeNumber(x: number): boolean {
+export function isPalindromeNumber(x: number) {
   const number = String(x).split("").reverse().join("");
   const parseNumber = Number.parseInt(number);
 
