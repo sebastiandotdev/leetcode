@@ -33,6 +33,7 @@ Leetcode exercises for programming skills.
 - https://fey.com/logos
 - https://transform․tools
 - https://quickref.me/
+- https://www.resumego.net/resume-checker/
 
 **Zig**
 
