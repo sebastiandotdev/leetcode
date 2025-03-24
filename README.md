@@ -25,6 +25,7 @@ Leetcode exercises for programming skills.
 - https://flexboxlabs.netlify.app/
 - https://layout.bradwoods.io/
 - https://magecdn.com/tools/svg-loaders
+- https://icons.pqoqubbw.dev/
 
 **APIs**
 
