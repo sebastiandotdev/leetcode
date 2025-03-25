@@ -27,12 +27,13 @@ Leetcode exercises for programming skills.
 - https://magecdn.com/tools/svg-loaders
 - https://icons.pqoqubbw.dev/
 
-**APIs**
+**Resources**
 
 - https://ipquery.io
 - https://retool.com/api-generator
 - https://fey.com/logos
 - https://transform․tools
+- https://godly.website/
 - https://quickref.me/
 - https://www.resumego.net/resume-checker/
 
