@@ -27,7 +27,7 @@ Leetcode exercises for programming skills.
 - https://magecdn.com/tools/svg-loaders
 - https://icons.pqoqubbw.dev/
 
-**Resources**
+**APIs**
 
 - https://ipquery.io
 - https://retool.com/api-generator
@@ -36,6 +36,7 @@ Leetcode exercises for programming skills.
 - https://godly.website/
 - https://quickref.me/
 - https://www.resumego.net/resume-checker/
+- lawsofux.com/es/
 
 **Zig**
 
