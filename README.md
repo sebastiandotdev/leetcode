@@ -26,6 +26,7 @@ Leetcode exercises for programming skills.
 - https://layout.bradwoods.io/
 - https://magecdn.com/tools/svg-loaders
 - https://icons.pqoqubbw.dev/
+- https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
 
 **APIs**
 
