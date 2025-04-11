@@ -25,6 +25,7 @@ Leetcode exercises for programming skills.
 - https://flexboxlabs.netlify.app/
 - https://layout.bradwoods.io/
 - https://magecdn.com/tools/svg-loaders
+- https://www.gradii.fun/
 - https://icons.pqoqubbw.dev/
 - https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
 
