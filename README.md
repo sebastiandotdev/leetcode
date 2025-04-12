@@ -38,7 +38,7 @@ Leetcode exercises for programming skills.
 - https://godly.website/
 - https://quickref.me/
 - https://www.resumego.net/resume-checker/
-- lawsofux.com/es/
+- https://lawsofux.com/es/
 
 **Zig**
 
