@@ -9,6 +9,9 @@ Leetcode exercises for programming skills.
 - https://swapy.tahazsh.com/
 - https://github.com/hexagoncircle/pixel-canvas
 - https://pdfslick.dev/
+- https://base-ui.com/
+- https://originui.com/
+- https://uipub.com/
 
 **HTML**
 
@@ -29,9 +32,7 @@ Leetcode exercises for programming skills.
 - https://icons.pqoqubbw.dev/
 - https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
 - https://designsystems.surf/
-- https://base-ui.com/
-- https://originui.com/
-- https://uipub.com/
+- https://ishadeed.com/article/modern-attr/
 
 **APIs**
 
