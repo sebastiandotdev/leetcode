@@ -30,6 +30,7 @@ Leetcode exercises for programming skills.
 - https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
 - https://designsystems.surf/
 - https://base-ui.com/
+- https://originui.com/
 
 **APIs**
 
