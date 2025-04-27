@@ -1,11 +1,11 @@
 /*************************************************************** ThisType<T> **************************************************************/
 /**
  * Ejemplo de uso de `ThisType<T>` en TypeScript para definir el tipo de `this` en métodos de un objeto.
- * 
+ *
  * `ThisType<T>` es una utilidad de TypeScript que permite especificar explícitamente el tipo del contexto `this`
  * dentro de los métodos de un objeto. Es útil en objetos literales, mixins, o frameworks como Vue.js, donde
  * los métodos necesitan acceder a otras propiedades o métodos del mismo objeto.
- * 
+ *
  * **Requisitos**:
  * - La opción `--noImplicitThis` debe estar habilitada en `tsconfig.json` para evitar que `this` sea inferido como `any`.
  */
