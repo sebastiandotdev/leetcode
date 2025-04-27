@@ -1,5 +1,8 @@
 {
   "lock": false,
+  "compilerOptions": {
+    "noImplicitThis": true
+  },
   "imports": {
     "@std/assert": "jsr:@std/assert"
   }
