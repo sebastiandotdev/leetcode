@@ -241,6 +241,8 @@ func main() {
 	}
 
 	getUserById(1)
+
+	LearnGoroutines()
 	manejarIndexFueraDeRango()
 
 	fmt.Println("Fin del programa", userEmail)
