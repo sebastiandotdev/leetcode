@@ -23,18 +23,51 @@ const (
 	goLang    string = "by Google"
 )
 
+type Database interface {
+	Connect() error
+}
+
+type PostgresDB struct { /* ... */
+}
+
+func (p *PostgresDB) Connect() error { /* ... */ return nil }
+
+type MySQLDB struct { /* ... */
+}
+
+func (m *MySQLDB) Connect() error { /* ... */ return nil }
+
+func processData(db Database) error {
+
+	return nil
+}
+
+type User struct {
+	name  string
+	email Email
+}
+
+type Email string
 type Rectangle struct {
 	Width  float64
 	Height float64
 }
 
-type Email string
 type UserId int
 
 func (r Rectangle) Area() float64 {
 
 	return r.Width * r.Height
 }
+
+func getUser(id UserId) {
+	// ...
+}
+
+// func getValueByEmail(email string){}
+// func getValueByEmail(e Email){
+
+// }
 
 func getUserById(id UserId) int {
 	return int(id)
@@ -165,7 +198,24 @@ func main() {
 		owner Owner
 	}
 
+	// func printType(i interface{}) {
+	//     switch v := i.(type) {
+	//     case int:
+	//         println("Es un entero:", v)
+	//     case string:
+	//         println("Es una cadena:", v)
+	//     default:
+	//         println("Tipo desconocido")
+	//     }
+	// }
+
 	var pet0 Pet
+
+	postgres := &PostgresDB{}
+	mysql := &MySQLDB{}
+
+	processData(postgres)
+	processData(mysql)
 
 	pet1 := Pet{"Gato", 2, Owner{"Sebastián"}}
 	pet2 := Pet{
@@ -310,4 +360,8 @@ func accederIndice(slice []int, index int) int {
 	}
 
 	return slice[index]
+}
+
+func channelsInGo() {
+
 }
