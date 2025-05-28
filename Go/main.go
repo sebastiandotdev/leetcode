@@ -3,6 +3,8 @@ package main
 import (
 	"errors"
 	"fmt"
+	"reflect"
+	"time"
 )
 
 // Types Primitives
@@ -295,7 +297,66 @@ func main() {
 	LearnGoroutines()
 	manejarIndexFueraDeRango()
 
+	unCanal := make(chan int)
+
+	go emisor(unCanal)
+	go receptor(unCanal) // Si receptor va a consumir todos los datos, el for range en main no es necesario
+
+	time.Sleep(time.Second * 3) // Espera a que las goroutines terminen
 	fmt.Println("Fin del programa", userEmail)
+
+	// var buffer bytes.Buffer
+
+	// for i := 0; i < 1000; i++ {
+	// 	buffer.WriteString("hola")
+	// }
+	// result := buffer.String()
+	// // result contendrá "holaholahola..." 1000 veces
+
+	// var buffer bytes.Buffer
+	// err := binary.Write(&buffer, binary.BigEndian, int32(12345))
+	//
+	//	if err != nil {
+	//	    fmt.Println("binary.Write failed:", err)
+	//	}
+	//
+	// data := buffer.Bytes()
+	// // data contendrá la representación binaria de 12345
+
+	// Trabajar con peticiones y respuestas HTTP en pruebas: Puedes usar bytes.Buffer para simular el cuerpo de una petición o respuesta HTTP sin necesidad de conexiones de red reales.
+
+	// select {
+	// case <-canal1:
+	//
+	//	// Código a ejecutar si se recibe un valor de canal1
+	//
+	// case valor := <-canal2:
+	//
+	//	// Código a ejecutar si se recibe un valor de canal2, el valor recibido se asigna a 'valor'
+	//
+	// case canal3 <- valorToSend:
+	//
+	//	// Código a ejecutar si se puede enviar 'valorToSend' a canal3
+	//
+	// case <-time.After(3 * time.Second):
+	//
+	//	// Código a ejecutar si transcurren 3 segundos (útil para timeouts)
+	//
+	// default:
+	//
+	//	    // Código a ejecutar si ninguna de las otras operaciones está lista inmediatamente
+	//	}
+
+	aljksdha := make(chan string, 1)
+	go longOperation(aljksdha)
+
+	select {
+	case res := <-aljksdha:
+		fmt.Println("Resultado:", res)
+	case <-time.After(1 * time.Second):
+		fmt.Println("Timeout: La operación tardó demasiado.")
+	}
+
 }
 
 func printNumbers(num int) {
@@ -362,6 +423,77 @@ func accederIndice(slice []int, index int) int {
 	return slice[index]
 }
 
+// En Go, un channel es un conducto a través del cual se pueden enviar y recibir valores entre goroutines.
 func channelsInGo() {
 
+	otroCanal := make(chan string)
+	// otroCanalConBuffer := make(chan string, 20)
+
+	myString := "Caarlos"
+
+	// Envío: Se utiliza el operador <- para enviar un valor a un channel.
+
+	otroCanal <- myString
+
+	// Recepción: También se utiliza el operador <- para recibir un valor de un channel.
+	valorRecibido := <-otroCanal // Recibe un valor del channel miCanal y lo asigna a valorRecibido
+	fmt.Println("Valor recibido:", valorRecibido)
+
+}
+
+func emisor(c chan int) {
+	defer close(c)
+	fmt.Println("Emisor: Intentando enviar 1")
+	c <- 1
+	fmt.Println("Emisor: 1 enviado")
+
+	fmt.Println("Emisor: Intentando enviar 2")
+	c <- 2
+	fmt.Println("Emisor: 2 enviado")
+}
+
+func receptor(c chan int) {
+	time.Sleep(time.Second * 1) // Simula algún trabajo
+
+	for valor := range c {
+		fmt.Println("Recibido del canal:", valor)
+	}
+
+	fmt.Println("Receptor: Esperando recibir")
+	valor1 := <-c
+	fmt.Println("Receptor: Recibido", valor1)
+
+	valor2 := <-c
+	fmt.Println("Receptor: Recibido", valor2)
+}
+
+func longOperation(ch chan string) {
+	time.Sleep(2 * time.Second)
+	ch <- "Operación completada"
+
+	scl := []int{1, 2, 3}
+	strs := []string{"H", "ola"}
+
+	Ejemplo(scl)
+	Ejemplo(strs)
+
+	NameFunc(4)
+}
+
+// La restricción comparable en Go asegura que el tipo T puede ser comparado con operadores como == o !=, pero no permite el uso de aserciones de tipo ni reflexión directa para inspeccionar el tipo en tiempo de ejecución.
+func NameFunc[T comparable](n T) {
+
+	switch reflect.TypeOf(n).Kind() {
+	case reflect.Int:
+		println("Es un entero:")
+	case reflect.String:
+		fmt.Println("Es un string:", n)
+	}
+	fmt.Println("n", n)
+}
+
+func Ejemplo[T comparable](slice []T) T {
+	fmt.Println("Slices: ", slice)
+
+	return slice[0]
 }
