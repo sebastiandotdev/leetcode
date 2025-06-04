@@ -66,6 +66,7 @@ dkms.conf
 .env
 *.orig
 *.pyc
+*.DS_Store
 *.swp
 
 ### zig ###
