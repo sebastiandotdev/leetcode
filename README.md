@@ -31,6 +31,7 @@ Leetcode exercises for programming skills.
 - https://www.gradii.fun/
 - https://icons.pqoqubbw.dev/
 - https://whatunit.com
+- https://uiverse.io
 - https://tailark.com/
 - https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
 - https://designsystems.surf/
