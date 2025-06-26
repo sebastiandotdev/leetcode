@@ -8,19 +8,23 @@ const User = struct {
     name: []const u8,
     power: i32,
 
-    const Self = @This();
+    /// Creates a new User, allocating memory for the name.
+    pub fn init(allocator: Allocator, name: []const u8, power: i32) !User {
+        const owned_name = try allocator.dupe(u8, name);
+        return User{
+            .name = owned_name,
+            .power = power,
+        };
+    }
 
-    pub fn deinit(self: Self, allocator: Allocator) void {
+    /// Frees the memory allocated for the User's name.
+    pub fn deinit(self: @This(), allocator: Allocator) void {
         allocator.free(self.name);
     }
 };
 
-fn userFactory(data: anytype) User {
-    const T = @TypeOf(data);
-    return .{
-        .power = if (@hasField(T, "power")) data.power else 0,
-        .name = if (@hasField(T, "name")) data.name else "",
-    };
+fn sum(a: i32, b: i32) i32 {
+    return a + b;
 }
 
 pub fn main() !void {
@@ -41,27 +45,34 @@ pub fn main() !void {
     const stdin = io.getStdIn().reader();
     const stdout = io.getStdOut().writer();
 
+    var line_buffer = std.ArrayList(u8).init(allocator);
+    defer line_buffer.deinit();
+
     var index: i32 = 0;
 
     while (true) : (index += 1) {
-        var buf: u8 = undefined;
+        try stdout.print("Please enter a name (or press Enter to finish): ", .{});
 
-        try stdout.print("Please enter a name: ", .{});
-
-        if (try stdin.readUntilDelimiterOrEof(&buf, '\n')) |line| {
-            var name = line;
-
-            if (builtin.os.tag == .windows) {
-                name = @constCast(std.mem.trimRight(u8, name, "\r"));
-            }
+        // Read a full line from stdin, using the ArrayList as a dynamic buffer.
+        // This correctly handles names of any length.
+        if (try stdin.readUntilDelimiterOrEof(line_buffer.writer(), '\n')) |line| {
+            // Trim whitespace, including the trailing newline characters.
+            const name = std.mem.trim(u8, line, " \t\r\n");
 
             if (name.len == 0) {
                 break;
             }
 
-            const owned_name = try allocator.dupe(u8, name);
+            // Use the new init function to create a user.
+            // This encapsulates the memory allocation for the name.
+            const user = try User.init(allocator, name, index);
+            try arr.append(user);
 
-            try arr.append(.{ .name = owned_name, .power = index });
+            // Clear the buffer for the next iteration.
+            line_buffer.clearRetainingCapacity();
+        } else {
+            // End of file reached.
+            break;
         }
     }
 
@@ -82,4 +93,6 @@ pub fn main() !void {
 
     std.debug.print("{s}\n", .{out.items});
     std.debug.print("{any}\n", .{has_leto});
+
+    sum(1, 2);
 }

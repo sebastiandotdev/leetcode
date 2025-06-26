@@ -13,9 +13,10 @@ Deno.test("Should return [0, 2]", () => {
   assertArrayIncludes(arrayIndex, [0, 2]);
 });
 
-Deno.test("SHould return [0, 0]", () => {
+Deno.test("Should return [0, 1] for duplicate numbers", () => {
   const arrayIndex = twoSum([4, 4], 8) as unknown as Array<number>;
-  assertArrayIncludes(arrayIndex, [0, 0]);
+  // El resultado debe ser [0, 1] porque son dos elementos en índices diferentes.
+  assertArrayIncludes(arrayIndex, [0, 1]);
 });
 
 Deno.test("SHould return [1, 2]", () => {

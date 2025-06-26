@@ -20,19 +20,18 @@
 // ```
 // =============================================================================
 
-export function twoSum(nums: number[], target: number) {
-  const map = new Map(); // new Map { }
+export function twoSum(nums: number[], target: number): number[] {
+  const map = new Map<number, number>();
 
-  for (let i = 0; i < nums.length; i++) { // 1
-    const num = nums[i]; // numero 2
-    const value = target - num; // 7,  -2
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    const complement = target - num;
 
-    if (map.has(value)) {
-      return [map.get(value), i]; // NO SE COMPLE EN EL PRIMER CICLO
+    if (map.has(complement)) {      
+      return [map.get(complement)!, i];
     }
 
     map.set(num, i);
   }
-
-  return map;
+  return [];
 }
