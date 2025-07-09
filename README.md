@@ -52,6 +52,7 @@ Leetcode exercises for programming skills.
 
 - https://www.openmymind.net/learning_zig/
 - https://zig.guide/
+- https://deepwiki.com/ziglang/zig/1-overview
 - https://cookbook.ziglang.cc/
 
 ## License
