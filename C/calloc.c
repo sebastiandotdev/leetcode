@@ -71,6 +71,8 @@ int main() {
     printf("Números del array: %d\n", arr[i]);
   }
 
+
+
   printf("------------------ MALLOC ----------------------------\n");
   for (int i = 0; i < size; i++) {
     printf("Números del array EN MALLOC: %d\n", arr_malloc[i]);

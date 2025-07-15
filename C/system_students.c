@@ -1,21 +1,11 @@
+#include "system_students.h"
+
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 int err = 0;
-
-#define OK 0
-#define ERROR_EXCEDE_LIMITE 1
-#define ERROR_INVALID_NUMBER 2
-#define ERROR_INPUT_INVALID 3
-#define ERROR_ALLOCATING_MEMORY 4
-
-typedef struct StudentInfo {
-  char name[50];
-  float ratings[3];
-  float average;
-} IStudentInfo;
 
 const char* message(int code) {
   switch (code) {
@@ -144,14 +134,15 @@ void display_above_average_students(const IStudentInfo* students, int len) {
   printf("Estudiante con mejor promedio\n\n");
   printf("================================================\n");
 
-  for (int i = 0; i < len; i++) {
-    IStudentInfo first_student_info = students[i];
+  const IStudentInfo* best_student = &students[0];
 
-    if (first_student_info.average > students[i + 1].average) {
-      printf("Estudiante %s: %.1f\n", students[i].name, students[i].average);
-      break;
+  for (int i = 1; i < len; i++) {
+    if (students[i].average > best_student->average) {
+      best_student = &students[i];
     }
   }
+
+  printf("Estudiante %s: %.1f\n", best_student->name, best_student->average);
   printf("================================================\n\n");
 }
 
