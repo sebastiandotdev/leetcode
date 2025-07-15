@@ -116,4 +116,4 @@ const exporterConfig = {
 
 const exporter = new ExporterFactory(exporterConfig);
 
-const csvExporter = exporter.createExporter("csv");
+const _csvExporter = exporter.createExporter("csv");
