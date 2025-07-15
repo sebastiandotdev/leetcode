@@ -62,6 +62,7 @@ dkms.conf
 ### Deno ###
 /node_modules
 .vscode/
+.zed/
 
 .env
 *.orig
